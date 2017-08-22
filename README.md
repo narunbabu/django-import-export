@@ -1,6 +1,10 @@
+# django-import-export
 # The workflow
 https://django-import-export.readthedocs.io/en/latest/import_workflow.html
+
 git push -u origin master
+git commit -m "edited comments"
+
 
 # And run in shell
 from app.admin import BookResource
