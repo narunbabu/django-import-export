@@ -47,43 +47,43 @@ TEMPLATES = [
     },
 ]
 
-# if os.environ.get('IMPORT_EXPORT_TEST_TYPE') == 'mysql-innodb':
-#     IMPORT_EXPORT_USE_TRANSACTIONS = True
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.mysql',
-#             'TEST_NAME': 'import_export_test',
-#             'USER': os.environ.get('IMPORT_EXPORT_MYSQL_USER', 'root'),
-#             'OPTIONS': {
-#                'init_command': 'SET storage_engine=INNODB',
-#             }
-#         }
-#     }
-# elif os.environ.get('IMPORT_EXPORT_TEST_TYPE') == 'postgres':
-#     IMPORT_EXPORT_USE_TRANSACTIONS = True
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql',
-#             'NAME': 'import_export',
-#             'USER': os.environ.get('IMPORT_EXPORT_POSTGRESQL_USER'),
-#             'PASSWORD': os.environ.get('IMPORT_EXPORT_POSTGRESQL_PASSWORD'),
-#             'HOST': 'localhost',
-#             'PORT': 5432
-#         }
-#     }
-# else:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': os.path.join(os.path.dirname(__file__), 'database.db'),
-#         }
-#     }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(os.path.dirname(__file__), 'ab_double.sqlite'),
+if os.environ.get('IMPORT_EXPORT_TEST_TYPE') == 'mysql-innodb':
+    IMPORT_EXPORT_USE_TRANSACTIONS = True
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'TEST_NAME': 'import_export_test',
+            'USER': os.environ.get('IMPORT_EXPORT_MYSQL_USER', 'root'),
+            'OPTIONS': {
+               'init_command': 'SET storage_engine=INNODB',
+            }
+        }
     }
-}
+elif os.environ.get('IMPORT_EXPORT_TEST_TYPE') == 'postgres':
+    IMPORT_EXPORT_USE_TRANSACTIONS = True
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'import_export',
+            'USER': os.environ.get('IMPORT_EXPORT_POSTGRESQL_USER'),
+            'PASSWORD': os.environ.get('IMPORT_EXPORT_POSTGRESQL_PASSWORD'),
+            'HOST': 'localhost',
+            'PORT': 5432
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(os.path.dirname(__file__), 'database.db'),
+        }
+    }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(os.path.dirname(__file__), 'ab_double.sqlite'),
+#     }
+# }
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
