@@ -11,3 +11,13 @@ dist/
 .idea/
 *.python-version
 env/
+*.db
+*.sqlite3
+*.sqlite
+*.sql
+*.csv
+*.xls
+*.xlsx
+
+
+
