@@ -16,8 +16,3 @@ env/
 *.sqlite
 *.sql
 *.csv
-*.xls
-*.xlsx
-
-
-
